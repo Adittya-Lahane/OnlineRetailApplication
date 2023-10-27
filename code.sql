@@ -120,6 +120,30 @@ INSERT INTO Categories (category_id, category_name) VALUES
 (9, 'Jewelry'),
 (10, 'Food & Beverages');
 
+-- Inserting 20 entries into the "Products" table with random data
+INSERT INTO Products (product_name, description, price, stock_quantity, category_id) VALUES
+('Smartphone', 'High-end smartphone with advanced features', 799.99, 50, 1),
+('Laptop', 'Powerful laptop for professional use', 1299.99, 30, 1),
+('T-shirt', 'Comfortable cotton t-shirt for everyday wear', 19.99, 100, 2),
+('Jeans', 'Classic denim jeans for men', 49.99, 60, 2),
+('Toaster', 'Stainless steel toaster for quick breakfasts', 29.99, 40, 3),
+('Coffee Maker', 'Automatic coffee maker with built-in grinder', 79.99, 20, 3),
+('Board Game', 'Family board game for hours of fun', 24.99, 75, 4),
+('Action Figure', 'Collectible action figure from popular movie', 9.99, 50, 4),
+('Novel', 'Bestselling novel by a renowned author', 12.99, 90, 5),
+('Cookbook', 'Cookbook with a variety of delicious recipes', 17.99, 70, 5),
+('Soccer Ball', 'Durable soccer ball for outdoor play', 14.99, 60, 6),
+('Yoga Mat', 'Non-slip yoga mat for fitness and relaxation', 19.99, 30, 6),
+('Shampoo', 'Moisturizing shampoo for healthy hair', 7.99, 120, 7),
+('Perfume', 'Elegant fragrance for special occasions', 39.99, 50, 7),
+('Sofa', 'Comfortable sofa for your living room', 499.99, 10, 8),
+('Dining Table', 'Elegant dining table for family gatherings', 299.99, 15, 8),
+('Diamond Necklace', 'Exquisite diamond necklace for special occasions', 999.99, 5, 9),
+('Gold Earrings', 'Beautiful gold earrings with gemstones', 299.99, 10, 9),
+('Chocolate Bars', 'Assorted chocolate bars for sweet cravings', 4.99, 200, 10),
+('Red Wine', 'High-quality red wine for celebrations', 24.99, 40, 10);
+
+
 INSERT INTO Customers values
 (1, 'Kobe', 'Bryant', 'kb24@nba.com', '824-224-2424', '2408 Mamba St'),
 (2, 'Barack', 'Obama', 'potus44@whitehouse.com', '444-242-2008', '111 President Blvd'),
@@ -150,6 +174,7 @@ INSERT INTO coupons VALUES
 select * from categories;
 select * from customers;
 select * from coupons;
+select * from products;
 
 
 
