@@ -121,7 +121,6 @@ INSERT INTO Categories (category_id, category_name) VALUES
 (9, 'Jewelry'),
 (10, 'Food & Beverages');
 
-
 INSERT INTO Customers values
 (1, 'Kobe', 'Bryant', 'kb24@nba.com', '824-224-2424', '2408 Mamba St'),
 (2, 'Barack', 'Obama', 'potus44@whitehouse.com', '444-242-2008', '111 President Blvd'),
@@ -134,11 +133,24 @@ INSERT INTO Customers values
 (9, 'Kenny', 'Smith', 'kennysmith@nbaontnt.com', '222-555-8888', '111 Ball St'),
 (10, 'Nigel', 'Ng', 'haiyaaaaa@gmail.com', '111-333-5555' , '6969 Haiyaaa St');
 
+INSERT INTO coupons VALUES
+(1001, 'ABCD30', 25.3, '2023-09-15', '2023-12-15'),
+(1002, 'LAL824', 24.8, '2023-8-24', '2024-2-24'),
+(1003, 'MEME69', 69.69, '2023-10-31', '2023-12-31'),
+(1004, 'MOO8', 20.5, '2023-8-5', '2023-10-7'),
+(1005, 'EEE4', 17.3, '2022-12-31', '2023-12-31'),
+(1006, 'AAAH1', 15.15, '2023-10-7', '2023-11-7'),
+(1007, 'SHHH1', 11.11, '2023-10-9', '2023-12-12'),
+(1008, 'HIYA24', 20, '2023-10-12', '2023-12-12'),
+(1009, 'LOLOL69', 69, '2023-10-10', '2023-12-10'),
+(1010, 'HAHAHA66', 23, '2023-9-23', '2023-12-23');
+
+
 
 
 select * from categories;
-select * from products;
-
+select * from customers;
+select * from coupons;
 
 
 
