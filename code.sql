@@ -122,6 +122,20 @@ INSERT INTO Categories (category_id, category_name) VALUES
 (10, 'Food & Beverages');
 
 
+INSERT INTO Customers values
+(1, 'Kobe', 'Bryant', 'kb24@nba.com', '824-224-2424', '2408 Mamba St'),
+(2, 'Barack', 'Obama', 'potus44@whitehouse.com', '444-242-2008', '111 President Blvd'),
+(3, 'Chris', 'Pines', 'cpines@gmail.com', '111-222-3333', '333 Main St'),
+(4, 'Shaquille', 'O-Neal', 'bigshaq@nba.com', '348-234-3432', '1515 Center St'),
+(5, 'Phil', 'Jackson', '11rings@nba.com', '111-111-1111', '1111 Dynasty Blvd'),
+(6, 'Stephen', 'Smith', 'stephena@espn.com', '888-777-6666', '123 ESPN St'),
+(7, 'Stephen', 'Curry', 'chefcurry@swish.edu', '303-303-3030', '3030 Splash Bvld'),
+(8, 'Jimmy', 'Cheng', 'jcheng@utdallas.edu', '214-777-9999', '1395 Coit Rd'),
+(9, 'Kenny', 'Smith', 'kennysmith@nbaontnt.com', '222-555-8888', '111 Ball St'),
+(10, 'Nigel', 'Ng', 'haiyaaaaa@gmail.com', '111-333-5555' , '6969 Haiyaaa St');
+
+
+
 select * from categories;
 select * from products;
 
