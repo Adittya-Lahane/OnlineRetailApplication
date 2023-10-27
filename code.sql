@@ -105,8 +105,7 @@ CREATE TABLE Cart (
 );
 
 
-select * from Products;
-show tables;
+-- Insert Statements
 
 
 INSERT INTO Categories (category_id, category_name) VALUES
