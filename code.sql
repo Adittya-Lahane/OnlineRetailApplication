@@ -104,77 +104,75 @@ CREATE TABLE Cart (
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
+-- Create ProductTags Table
+CREATE TABLE ProductTags (
+    tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    tag_name VARCHAR(50) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
 
--- Insert Statements
+-- Create ProductAttributes Table
+CREATE TABLE ProductAttributes (
+attribute_id INT AUTO_INCREMENT PRIMARY KEY,
+product_id INT,
+attribute_name VARCHAR(255) NOT NULL,
+attribute_value VARCHAR(255) NOT NULL,
+FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
 
+-- Create Warehouses Table
+CREATE TABLE Warehouses (
+warehouse_id INT AUTO_INCREMENT PRIMARY KEY,
+warehouse_name VARCHAR(255) NOT NULL,
+location VARCHAR(255) NOT NULL
+);
 
-INSERT INTO Categories (category_id, category_name) VALUES
-(1, 'Electronics'),
-(2, 'Clothing'),
-(3, 'Home & Kitchen'),
-(4, 'Toys & Games'),
-(5, 'Books'),
-(6, 'Sports & Outdoors'),
-(7, 'Health & Beauty'),
-(8, 'Furniture'),
-(9, 'Jewelry'),
-(10, 'Food & Beverages');
+-- Create Inventory Table
+CREATE TABLE Inventory (
+inventory_id INT AUTO_INCREMENT PRIMARY KEY,
+product_id INT,
+warehouse_id INT,
+quantity INT NOT NULL,
+FOREIGN KEY (product_id) REFERENCES Products(product_id),
+FOREIGN KEY (warehouse_id) REFERENCES Warehouses(warehouse_id)
+);
 
--- Inserting 20 entries into the "Products" table with random data
-INSERT INTO Products (product_name, description, price, stock_quantity, category_id) VALUES
-('Smartphone', 'High-end smartphone with advanced features', 799.99, 50, 1),
-('Laptop', 'Powerful laptop for professional use', 1299.99, 30, 1),
-('T-shirt', 'Comfortable cotton t-shirt for everyday wear', 19.99, 100, 2),
-('Jeans', 'Classic denim jeans for men', 49.99, 60, 2),
-('Toaster', 'Stainless steel toaster for quick breakfasts', 29.99, 40, 3),
-('Coffee Maker', 'Automatic coffee maker with built-in grinder', 79.99, 20, 3),
-('Board Game', 'Family board game for hours of fun', 24.99, 75, 4),
-('Action Figure', 'Collectible action figure from popular movie', 9.99, 50, 4),
-('Novel', 'Bestselling novel by a renowned author', 12.99, 90, 5),
-('Cookbook', 'Cookbook with a variety of delicious recipes', 17.99, 70, 5),
-('Soccer Ball', 'Durable soccer ball for outdoor play', 14.99, 60, 6),
-('Yoga Mat', 'Non-slip yoga mat for fitness and relaxation', 19.99, 30, 6),
-('Shampoo', 'Moisturizing shampoo for healthy hair', 7.99, 120, 7),
-('Perfume', 'Elegant fragrance for special occasions', 39.99, 50, 7),
-('Sofa', 'Comfortable sofa for your living room', 499.99, 10, 8),
-('Dining Table', 'Elegant dining table for family gatherings', 299.99, 15, 8),
-('Diamond Necklace', 'Exquisite diamond necklace for special occasions', 999.99, 5, 9),
-('Gold Earrings', 'Beautiful gold earrings with gemstones', 299.99, 10, 9),
-('Chocolate Bars', 'Assorted chocolate bars for sweet cravings', 4.99, 200, 10),
-('Red Wine', 'High-quality red wine for celebrations', 24.99, 40, 10);
+-- Create ProductVariants Table
+CREATE TABLE ProductVariants (
+    variant_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    variant_name VARCHAR(255) NOT NULL,
+    price_adjustment DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+);
 
+-- Create OrderStatus Table
+CREATE TABLE OrderStatus (
+status_id INT AUTO_INCREMENT PRIMARY KEY,
+status_name VARCHAR(50) NOT NULL
+);
 
-INSERT INTO Customers values
-(1, 'Kobe', 'Bryant', 'kb24@nba.com', '824-224-2424', '2408 Mamba St'),
-(2, 'Barack', 'Obama', 'potus44@whitehouse.com', '444-242-2008', '111 President Blvd'),
-(3, 'Chris', 'Pines', 'cpines@gmail.com', '111-222-3333', '333 Main St'),
-(4, 'Shaquille', 'O-Neal', 'bigshaq@nba.com', '348-234-3432', '1515 Center St'),
-(5, 'Phil', 'Jackson', '11rings@nba.com', '111-111-1111', '1111 Dynasty Blvd'),
-(6, 'Stephen', 'Smith', 'stephena@espn.com', '888-777-6666', '123 ESPN St'),
-(7, 'Stephen', 'Curry', 'chefcurry@swish.edu', '303-303-3030', '3030 Splash Bvld'),
-(8, 'Jimmy', 'Cheng', 'jcheng@utdallas.edu', '214-777-9999', '1395 Coit Rd'),
-(9, 'Kenny', 'Smith', 'kennysmith@nbaontnt.com', '222-555-8888', '111 Ball St'),
-(10, 'Nigel', 'Ng', 'haiyaaaaa@gmail.com', '111-333-5555' , '6969 Haiyaaa St');
+-- Create OrderHistory Table
+CREATE TABLE OrderHistory (
+order_history_id INT AUTO_INCREMENT PRIMARY KEY,
+order_id INT,
+status_id INT,
+status_date DATETIME NOT NULL,
+FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+FOREIGN KEY (status_id) REFERENCES OrderStatus(status_id)
+);
 
-INSERT INTO coupons VALUES
-(1001, 'ABCD30', 25.3, '2023-09-15', '2023-12-15'),
-(1002, 'LAL824', 24.8, '2023-8-24', '2024-2-24'),
-(1003, 'MEME69', 69.69, '2023-10-31', '2023-12-31'),
-(1004, 'MOO8', 20.5, '2023-8-5', '2023-10-7'),
-(1005, 'EEE4', 17.3, '2022-12-31', '2023-12-31'),
-(1006, 'AAAH1', 15.15, '2023-10-7', '2023-11-7'),
-(1007, 'SHHH1', 11.11, '2023-10-9', '2023-12-12'),
-(1008, 'HIYA24', 20, '2023-10-12', '2023-12-12'),
-(1009, 'LOLOL69', 69, '2023-10-10', '2023-12-10'),
-(1010, 'HAHAHA66', 23, '2023-9-23', '2023-12-23');
+-- Create Returns Table
+CREATE TABLE Returns (
+return_id INT AUTO_INCREMENT PRIMARY KEY,
+order_id INT,
+return_date DATE NOT NULL,
+reason TEXT,
+FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
 
-
-
-
-select * from categories;
-select * from customers;
-select * from coupons;
-select * from products;
 
 
 
